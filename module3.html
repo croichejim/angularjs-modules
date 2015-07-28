@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Croiche Jim D. Cabotaje</title>
+
+<script src="angular.min.js"></script>
+</head>
+<body>
+<h2>creating views,controller and scope</h2>
+<div ng-app="mainApp" ng-controller="controller">
+
+First name: <input type="text" ng-model="student.firstName"><br><br>
+Last name: <input type="text" ng-model="student.lastName"><br>
+<br>
+You are entering: {{student.fullName()}}
+</div>
+<script>
+var mainApp = angular.module("mainApp", []);
+
+mainApp.controller('controller', function($scope) {
+   $scope.student = {
+      firstName: "Croiche",
+      lastName: "Cabotaje",
+      fullName: function() {
+         var studentObject;
+         studentObject = $scope.student;
+         return studentObject.firstName + " " + studentObject.lastName;
+      }
+   };
+});
+</script>
+
+</body>
+</html>
